@@ -1,0 +1,637 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Tells the browser this is a modern HTML document -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the website responsive on phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Browser tab title -->
+    <title>TradePro - Trading Dashboard</title>
+
+    <!-- Connect HTML to CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER / TOP NAVIGATION
+    ========================== -->
+    <header class="topbar">
+
+        <div class="logo">
+            <span class="logo-mark">T</span>
+            <span>TradePro</span>
+        </div>
+
+        <nav class="main-nav">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#markets">Markets</a>
+            <a href="#analysis">Analysis</a>
+            <a href="#portfolio">Portfolio</a>
+        </nav>
+
+        <div class="header-actions">
+            <span class="market-status">
+                <span class="status-dot"></span>
+                Market Open
+            </span>
+
+            <button class="icon-button" id="themeButton" title="Change theme">
+                ☼
+            </button>
+
+            <button class="profile-button">
+                <span>TR</span>
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN WEBSITE
+    ========================== -->
+    <main id="dashboard">
+
+        <!-- =========================
+             MARKET SUMMARY
+        ========================== -->
+        <section class="market-summary">
+
+            <div class="market-card">
+                <span class="label">Account Balance</span>
+                <strong id="balance">$25,430.80</strong>
+                <small class="positive">+2.84% today</small>
+            </div>
+
+            <div class="market-card">
+                <span class="label">Available Margin</span>
+                <strong id="margin">$18,720.40</strong>
+                <small>73.62% available</small>
+            </div>
+
+            <div class="market-card">
+                <span class="label">Today's P/L</span>
+                <strong class="positive" id="dailyProfit">+$724.35</strong>
+                <small class="positive">+2.92%</small>
+            </div>
+
+            <div class="market-card">
+                <span class="label">Open Positions</span>
+                <strong id="positions">3</strong>
+                <small>2 profitable</small>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TRADING WORKSPACE
+        ========================== -->
+        <section class="workspace">
+
+            <!-- =========================
+                 LEFT: WATCHLIST
+            ========================== -->
+            <aside class="watchlist" id="markets">
+
+                <div class="panel-header">
+                    <div>
+                        <h2>Markets</h2>
+                        <span>Watchlist</span>
+                    </div>
+
+                    <button class="small-button" id="addMarketButton">
+                        +
+                    </button>
+                </div>
+
+                <div class="search-box">
+                    <input
+                        type="text"
+                        id="marketSearch"
+                        placeholder="Search market..."
+                    >
+                </div>
+
+                <div class="market-list" id="marketList">
+
+                    <button
+                        class="market-item active"
+                        data-symbol="EURUSD"
+                        data-price="1.17482"
+                    >
+                        <span>
+                            <strong>EUR/USD</strong>
+                            <small>Euro / US Dollar</small>
+                        </span>
+
+                        <span>
+                            <strong>1.17482</strong>
+                            <small class="positive">+0.42%</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="market-item"
+                        data-symbol="GBPUSD"
+                        data-price="1.34126"
+                    >
+                        <span>
+                            <strong>GBP/USD</strong>
+                            <small>British Pound</small>
+                        </span>
+
+                        <span>
+                            <strong>1.34126</strong>
+                            <small class="positive">+0.28%</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="market-item"
+                        data-symbol="USDJPY"
+                        data-price="148.420"
+                    >
+                        <span>
+                            <strong>USD/JPY</strong>
+                            <small>US Dollar / Yen</small>
+                        </span>
+
+                        <span>
+                            <strong>148.420</strong>
+                            <small class="negative">-0.31%</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="market-item"
+                        data-symbol="XAUUSD"
+                        data-price="3854.70"
+                    >
+                        <span>
+                            <strong>XAU/USD</strong>
+                            <small>Gold / US Dollar</small>
+                        </span>
+
+                        <span>
+                            <strong>3854.70</strong>
+                            <small class="positive">+0.76%</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="market-item"
+                        data-symbol="BTCUSD"
+                        data-price="109420.00"
+                    >
+                        <span>
+                            <strong>BTC/USD</strong>
+                            <small>Bitcoin</small>
+                        </span>
+
+                        <span>
+                            <strong>109420</strong>
+                            <small class="positive">+1.24%</small>
+                        </span>
+                    </button>
+
+                </div>
+
+            </aside>
+
+
+            <!-- =========================
+                 CENTER: CHART
+            ========================== -->
+            <section class="chart-panel" id="analysis">
+
+                <div class="chart-header">
+
+                    <div class="instrument">
+
+                        <div>
+                            <h1 id="symbolTitle">EUR/USD</h1>
+                            <span id="symbolDescription">
+                                Euro / US Dollar
+                            </span>
+                        </div>
+
+                        <span class="exchange-badge">
+                            FX
+                        </span>
+
+                    </div>
+
+
+                    <div class="chart-price">
+
+                        <strong id="currentPrice">
+                            1.17482
+                        </strong>
+
+                        <span class="positive" id="priceChange">
+                            +0.42%
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Timeframe buttons -->
+                <div class="chart-toolbar">
+
+                    <div class="timeframes">
+
+                        <button class="timeframe">1m</button>
+                        <button class="timeframe">5m</button>
+                        <button class="timeframe active">15m</button>
+                        <button class="timeframe">1H</button>
+                        <button class="timeframe">4H</button>
+                        <button class="timeframe">1D</button>
+
+                    </div>
+
+                    <div class="indicators">
+
+                        <button id="indicatorButton">
+                            Indicators
+                        </button>
+
+                        <button id="fullscreenButton">
+                            ⛶
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Chart area -->
+                <div class="chart-container">
+
+                    <canvas id="tradingChart"></canvas>
+
+                    <div class="chart-label resistance">
+                        Resistance
+                    </div>
+
+                    <div class="chart-label support">
+                        Support
+                    </div>
+
+                    <div class="price-line" id="priceLine">
+                        1.17482
+                    </div>
+
+                </div>
+
+
+                <!-- Chart bottom information -->
+                <div class="chart-footer">
+
+                    <div>
+                        <span>O</span>
+                        <strong>1.17394</strong>
+                    </div>
+
+                    <div>
+                        <span>H</span>
+                        <strong>1.17562</strong>
+                    </div>
+
+                    <div>
+                        <span>L</span>
+                        <strong>1.17280</strong>
+                    </div>
+
+                    <div>
+                        <span>C</span>
+                        <strong id="closePrice">1.17482</strong>
+                    </div>
+
+                    <div>
+                        <span>VOL</span>
+                        <strong>24.8K</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 RIGHT: ORDER PANEL
+            ========================== -->
+            <aside class="order-panel">
+
+                <div class="panel-tabs">
+
+                    <button class="order-tab active" data-order="market">
+                        Market
+                    </button>
+
+                    <button class="order-tab" data-order="limit">
+                        Limit
+                    </button>
+
+                    <button class="order-tab" data-order="stop">
+                        Stop
+                    </button>
+
+                </div>
+
+
+                <div class="order-content">
+
+                    <div class="order-symbol">
+
+                        <div>
+                            <strong id="orderSymbol">
+                                EUR/USD
+                            </strong>
+
+                            <small>
+                                Forex
+                            </small>
+                        </div>
+
+                        <strong id="orderPrice">
+                            1.17482
+                        </strong>
+
+                    </div>
+
+
+                    <div class="trade-direction">
+
+                        <button
+                            class="sell-button"
+                            id="sellButton"
+                        >
+                            <span>SELL</span>
+                            <strong id="sellPrice">
+                                1.17476
+                            </strong>
+                        </button>
+
+                        <button
+                            class="buy-button"
+                            id="buyButton"
+                        >
+                            <span>BUY</span>
+                            <strong id="buyPrice">
+                                1.17488
+                            </strong>
+                        </button>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="quantity">
+                            Position Size
+                        </label>
+
+                        <div class="number-control">
+
+                            <button id="minusQuantity">
+                                −
+                            </button>
+
+                            <input
+                                type="number"
+                                id="quantity"
+                                value="1"
+                                min="0.01"
+                                step="0.01"
+                            >
+
+                            <button id="plusQuantity">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="stopLoss">
+                            Stop Loss
+                        </label>
+
+                        <input
+                            type="number"
+                            id="stopLoss"
+                            placeholder="Optional"
+                            step="0.00001"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="takeProfit">
+                            Take Profit
+                        </label>
+
+                        <input
+                            type="number"
+                            id="takeProfit"
+                            placeholder="Optional"
+                            step="0.00001"
+                        >
+
+                    </div>
+
+
+                    <div class="risk-summary">
+
+                        <div>
+                            <span>Estimated Margin</span>
+                            <strong>$117.48</strong>
+                        </div>
+
+                        <div>
+                            <span>Risk/Reward</span>
+                            <strong>1 : 2.1</strong>
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="execute-button"
+                        id="executeButton"
+                    >
+                        Place Demo Order
+                    </button>
+
+                    <p class="demo-warning">
+                        Demo interface only. No real order will be placed.
+                    </p>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+
+        <!-- =========================
+             LOWER INFORMATION AREA
+        ========================== -->
+        <section class="bottom-grid" id="portfolio">
+
+            <!-- Open positions -->
+            <div class="data-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Open Positions</h2>
+                        <span>Current demo trades</span>
+                    </div>
+
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Side</th>
+                                <th>Size</th>
+                                <th>Entry</th>
+                                <th>Current</th>
+                                <th>P/L</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="positionsTable">
+
+                            <tr>
+                                <td>EUR/USD</td>
+                                <td class="positive">BUY</td>
+                                <td>1.00</td>
+                                <td>1.17240</td>
+                                <td>1.17482</td>
+                                <td class="positive">+$242.00</td>
+                            </tr>
+
+                            <tr>
+                                <td>GBP/USD</td>
+                                <td class="positive">BUY</td>
+                                <td>0.50</td>
+                                <td>1.33810</td>
+                                <td>1.34126</td>
+                                <td class="positive">+$158.00</td>
+                            </tr>
+
+                            <tr>
+                                <td>USD/JPY</td>
+                                <td class="negative">SELL</td>
+                                <td>0.30</td>
+                                <td>148.080</td>
+                                <td>148.420</td>
+                                <td class="negative">-$102.00</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- Market information -->
+            <div class="data-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Market Information</h2>
+                        <span>EUR/USD</span>
+                    </div>
+
+                </div>
+
+                <div class="market-information">
+
+                    <div>
+                        <span>Day High</span>
+                        <strong>1.17562</strong>
+                    </div>
+
+                    <div>
+                        <span>Day Low</span>
+                        <strong>1.17280</strong>
+                    </div>
+
+                    <div>
+                        <span>Spread</span>
+                        <strong>0.6 pips</strong>
+                    </div>
+
+                    <div>
+                        <span>Volume</span>
+                        <strong>24.8K</strong>
+                    </div>
+
+                    <div>
+                        <span>Trend</span>
+                        <strong class="positive">Bullish</strong>
+                    </div>
+
+                    <div>
+                        <span>Volatility</span>
+                        <strong>Medium</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+
+        <p>
+            © 2026 TradePro. Demo trading interface for learning.
+        </p>
+
+    </footer>
+
+
+    <!-- Connect HTML to JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
